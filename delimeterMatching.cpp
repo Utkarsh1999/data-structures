@@ -73,7 +73,8 @@ template <typename T>
 	{
 		Stack <char>stack1;
 		char input;
-		for(int i = 0;i<10;i++)
+		//for(int i = 0;i<10;i++)
+		while(true)
 		{
 			cin>>input;
 			//if(input == '(' || input == ')' || input == '{' || input == '}' || input == '[' || input == ']')
@@ -84,55 +85,36 @@ template <typename T>
 			}
 			else if(input == ')' || input == '}' || input == ']')
 			{
-				char el = stack1.pop();
-				if(el == '(' && input == ')')
-				{
-					
-				}
-				else if(el == '{' && input == '}')
-				{
-
-				}
-				else if(el == '[' && input == ']')
-				{
-					
-				}
-				else{
-					//error
-					return 0;
-				}
-			}
-			else{
-				if(stack1.isEmpty())
-				{
-				
-					stack1.push(input);		
-				}
-				else{
-					char varA = stack1.pop();
+				//char el = stack1.pop();
+				char varA = stack1.pop();
 					if(varA == '(' && input== ')')
 					{
-						
+						cout<<"delimeter ( ) matched"<<endl;
 					}
-					else if(varA == '(' && input== ')')
+					else if(varA == '{' && input== '}')
 					{
-						
+						cout<<"delimeter { } matched"<<endl;	
 					}
-					else if(varA == '(' && input== ')')
+					else if(varA == '[' && input== ']')
 					{
-						
+						cout<<"delimeter [ ] matched"<<endl;
 					}
 					else{
 						//error
+						cout<<"invalid input/expression"<<endl;
 					}		
+			}
+			else{
+					cout<<"not a bracket \n"<<endl;
+					continue;
 				}
 			}
 			
-			 
+			return 0;		 
 
 		}
 		
-	}
+	
 
 
 
