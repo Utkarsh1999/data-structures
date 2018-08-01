@@ -48,4 +48,17 @@ class SLL
 		}
 	}
 
+	void visit(SLLNode *p)
+	{
+		cout<<p->info<<endl;	
+	}
+
+	void traverse(SLLNode *P)
+	{
+		while(p->next != NULL)
+		{
+			
+		}
+	}
+
 };
