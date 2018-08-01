@@ -6,21 +6,23 @@ using namespace std;
 
 class SLLNode 
 {
-	int info;
-	SLLNode *next;
+	public: 
+		int info;
+		SLLNode *next;
 	
-	SLLNode()
-	{
-		info = 0;
-		next = NULL;	
-	}
+		SLLNode()
+		{
+			info = 0;
+			next = NULL;	
+		}
 
-}
+};
 
 
 
 class SLL
 {
+    public:
 	SLLNode *head , *tail;
 	
 	SLL()
@@ -33,12 +35,12 @@ class SLL
 	{
 		if(head == NULL)
 		{
-			SLLNode node1 = new SLLNode();
+			SLLNode node1;
 			node1.info = info;
 			node1.next = NULL;
 		}
 		else{
-			SLLNode node2 = new SLLNode();
+			SLLNode node2;
 			node2.info = info;
 			node2.next = NULL;
 			tail -> next = &node2;
@@ -46,4 +48,4 @@ class SLL
 		}
 	}
 
-}
+};
