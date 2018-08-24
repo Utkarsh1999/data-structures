@@ -1,0 +1,165 @@
+#include <iostream>
+#include <iomanip>
+
+using namespace std;
+
+
+class DLLNode 
+{
+	public: 
+		int info;
+		DLLNode *next , *prev;
+	
+		DLLNode()
+		{
+			info = 0;
+			next = NULL;
+			prev = NULL;	
+		}
+
+};
+
+
+
+class DLL
+{
+    public:
+	DLLNode *head , *tail , *prev;
+	
+	DLL()
+	{
+		head = NULL;
+		tail = NULL;
+		prev = NULL;
+	}
+
+	void addathead(int el)
+	{
+		if(head == NULL)
+		{
+			DLLNode *node = new DLLNode();
+			head = node;
+			node->info = el;
+			tail = node;
+			
+		}
+		else{
+			DLLNode *node = new DLLNode();
+			node->next = head;
+			node->info = el;
+			head->prev = node;
+			head = node;
+			
+		}
+	}
+
+	void addattail(int el)
+	{
+		if(head == NULL)
+		{
+			DLLNode *node = new DLLNode();
+			head = node;
+			head->info = el;
+			tail = node;
+			
+		}
+		else{
+			DLLNode *node = new DLLNode();
+			tail->next = node;
+			tail->next->prev = tail;
+			tail = tail->next;
+			tail->info = el;
+			
+		}
+	}
+
+
+	void deletefromhead()
+	{
+		if(head == NULL)
+		{
+			//return error nothing to delete 		
+		}
+		else{
+			head = head->next;
+			head->prev = NULL;
+		}
+	}
+
+	void deletefromtail()
+	{
+		if(head == NULL)
+		{
+			//return error nothing to delete 		
+		}
+		else{
+			tail = head->prev;
+			head->next = NULL;
+		}
+	}
+	
+	void search(int el)
+	{
+		cout<<"elemen to be searched"<<el<<endl;
+		DLLNode *headPointer = new DLLNode();
+		DLLNode *tailPointer = new DLLNode();
+		headPointer = head;
+		tailPointer = tail;
+		
+		
+		while(headPointer != tailPointer)
+		{
+			int popel = headPointer->info;
+			if(popel == el)
+			{
+				cout<<"element found"<<endl;
+				//break;
+				return;
+			}
+						
+			p = p->next;
+		}	
+		cout<<"element not found"<<endl;
+	}
+
+	void traverse()
+	{
+		DLLNode *p = new DLLNode();
+		p = head;
+		
+		
+		while(p!= NULL)
+		{
+			
+			//visit(p);
+			cout<<p->info<<endl;			
+			p = p->next;
+		}
+	}
+
+
+
+
+
+};
+
+
+int main()
+{
+	DLL list;
+	list.addattail(1);
+	list.addathead(5);
+	list.addathead(4);
+	list.traverse();	
+	list.search(1);	
+	list.deletefromhead();
+	list.traverse();
+	list.deletefromtail();
+	list.traverse();	
+
+}
+
+
+
+
+
